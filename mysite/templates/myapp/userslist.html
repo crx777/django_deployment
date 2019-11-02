@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'myapp/header_and_footer.html' %}
+{% load staticfiles %}
+{% block page_title %}User List{% endblock %}
+
+{% block sccinject %}
+<link rel="stylesheet" href="{% static 'css/userslist.css'%}" />
+{% endblock %}
+
+
+{% block main_body_block %}
+    <div class="container" id="margmetop2">
+
+      <div class="row justify-content-center">
+        <h3>Here is the list of users :</h3>
+
+        {% if users %}
+    <ol>
+      {% for person in users %}
+      <li></li>
+        <ul>
+          <li>Firsr Name : {{person.first_name}}</li>
+          <li>Last Name : {{person.last_name}}</li>
+          <li>Email : {{person.email}}</li>
+
+        </ul>
+        {% endfor %}
+    </ol>
+    {% endif %}
+      </div>
+    </div>
+{% endblock %}

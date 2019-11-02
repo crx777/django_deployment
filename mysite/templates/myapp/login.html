@@ -1,0 +1,28 @@
+{% extends 'myapp/header_and_footer.html' %}
+{% load staticfiles %}
+
+
+{% block page_title %}Log in{% endblock %}
+
+{% block sccinject %}
+<link rel="stylesheet" href="{% static 'css/shop-item.css'%}"/>
+{% endblock %}
+
+
+
+{% block main_body_block %}
+<div class="jumbotron">
+  <h1>please Login : </h1>
+
+<form class="" action="{% url 'login' %}" method="post">
+  {% csrf_token %}
+  <label for="username">Username</label>
+  <input type="" name="username">
+  <label for="password">Password : </label>
+  <input type="password" name="password" >
+
+  <input type="submit" value="Log in">
+
+</form>
+</div>
+{% endblock %}

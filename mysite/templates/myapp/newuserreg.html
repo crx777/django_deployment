@@ -1,0 +1,26 @@
+{% extends 'myapp/header_and_footer.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<!-- {% load crispy_forms_field %} -->
+{% block page_title %}Register{% endblock %}
+
+{% block sccinject %}
+<link rel="stylesheet" href="{% static 'css/shop-item.css'%}"/>
+{% endblock %}
+{% block main_body_block %}
+<div class="jumbotron">
+{% if registered %}
+<h1>thank you for registering!</h1>
+{% else %}
+<h1>Register</h1>
+<h3>please fill out this form :</h3>
+<form  method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{user_form.as_p}}
+  {{profile_pic_form.as_p }}
+  <input type="submit"  value="Register">
+
+</form>
+{% endif %}
+</div>
+{% endblock %}
